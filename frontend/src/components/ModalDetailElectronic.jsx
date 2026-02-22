@@ -118,7 +118,7 @@ useEffect(() => {
 
                       return (
                         <div key={field.key} className="feature">
-                          {field.label && <span className="label">{`${field.label}:`}`</span>}
+                          {field.label && <span className="label">{`${field.label}:`}</span>}
                           <span className="value">{display ?? "—"}</span>
                         </div>
                       )
