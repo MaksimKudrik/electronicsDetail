@@ -6,7 +6,7 @@ const Home = () => {
                 {/* <электроника /> */}
                 <div className="electronic">
                     <div className="electronic__container">
-                            <h2 className="electronic__title">электронные компоненты</h2>
+                            <h2 className="electronic__title">электронные компоненты для LEGO SPIKE Prime</h2>
                             <a href="/electronics" 
                                 className="electronic__card">
                                 <div className="electronic__img"></div>
