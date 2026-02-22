@@ -32,36 +32,34 @@ const ModalDeviceDetail = ({ device, type, closeModal }) => {
 
   const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
-  useEffect(() => {
-    const fetchComponents = async () => {
+useEffect(() => {
+    const fetchDetails = async () => {
       try {
-        // Используем шаблонную строку с правильным API_BASE
-        const response = await axios.get(`${API_BASE}/api/electronics`);
-        
-        console.log("Получено компонентов:", response.data.length);
+        const url = `${API_BASE}/api/electronics/${type}/${device.id}`;
+        console.log("Запрос деталей по URL:", url);
+
+        const response = await axios.get(url);
+        console.log("Ответ от сервера:", response.data);
+
         setDetails(response.data);
         setLoading(false);
       } catch (err) {
-        console.error("Ошибка загрузки компонентов:", err.message);
-        
-        let errorMsg = "Не удалось загрузить компоненты";
+        console.error("Ошибка при загрузке деталей устройства:", err);
+        let msg = "Не удалось загрузить данные";
         if (err.response) {
-          if (err.response.status === 404) {
-            errorMsg = "Компоненты не найдены (проверьте бэкенд)";
-          } else if (err.response.status === 500) {
-            errorMsg = "Ошибка сервера (проверьте логи Render)";
-          }
+          if (err.response.status === 404) msg = "Устройство не найдено";
+          if (err.response.status === 400) msg = "Неверный тип устройства";
+          if (err.response.status === 500) msg = "Ошибка на сервере";
         } else if (err.request) {
-          errorMsg = "Нет ответа от сервера (проверьте, запущен ли бэкенд)";
+          msg = "Нет ответа от сервера";
         }
-        
-        setFetchError(errorMsg);
+        setFetchError(msg);
         setLoading(false);
       }
     };
 
-    fetchComponents();
-  }, []);
+    fetchDetails();
+  }, [device?.id, type, API_BASE]);
 
   
   const config = typeConfig?.[type] || { title: "Неизвестный тип", fields: [] }
