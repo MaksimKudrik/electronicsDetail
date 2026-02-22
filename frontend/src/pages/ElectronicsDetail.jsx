@@ -95,7 +95,7 @@ const ElectronicsDetail = () => {
 
               <div className="device-card__content">
                 <h3>{dev.name_device}</h3>
-                <div className="device-card__button">подробнее</div>
+                <div className="device-card__button">Подробнее</div>
               </div>
             </div>
           ))
