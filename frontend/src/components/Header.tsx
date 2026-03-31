@@ -1,14 +1,15 @@
-
+// src/components/Header.tsx
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X, Sun, Moon } from 'lucide-react';
+import './Header.css';
 
-const Navbar: React.FC = () => {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+    const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setTheme(savedTheme);
       document.documentElement.classList.toggle('dark', savedTheme === 'dark');
@@ -28,30 +29,40 @@ const Navbar: React.FC = () => {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
+    <header className="header">
+      <div className="header-container">
         {/* Логотип */}
         <NavLink to="/" className="logo">
-          <div className="logo-icon">M</div>
+          <div className="logo-icon">
+            <span>M</span>
+          </div>
           <span className="logo-text">MyApp</span>
         </NavLink>
 
         {/* Десктопное меню */}
-        <div className="nav-links">
+        <nav className="nav-links">
           <NavLink to="/" className="nav-link" onClick={closeMenu}>Главная</NavLink>
           <NavLink to="/about" className="nav-link" onClick={closeMenu}>О нас</NavLink>
           <NavLink to="/services" className="nav-link" onClick={closeMenu}>Услуги</NavLink>
           <NavLink to="/projects" className="nav-link" onClick={closeMenu}>Проекты</NavLink>
           <NavLink to="/contact" className="nav-link" onClick={closeMenu}>Контакты</NavLink>
-        </div>
+        </nav>
 
-        {/* Правая часть */}
-        <div className="nav-actions">
-          <button onClick={toggleTheme} className="theme-toggle" aria-label="Переключить тему">
-            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+        {/* Правая часть: тема + гамбургер */}
+        <div className="header-actions">
+          <button 
+            onClick={toggleTheme} 
+            className="theme-toggle"
+            aria-label="Переключить тему"
+          >
+            {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
           </button>
 
-          <button onClick={toggleMenu} className="hamburger" aria-label="Открыть меню">
+          <button 
+            onClick={toggleMenu} 
+            className="hamburger"
+            aria-label="Открыть меню"
+          >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
@@ -67,8 +78,8 @@ const Navbar: React.FC = () => {
           <NavLink to="/contact" className="mobile-link" onClick={closeMenu}>Контакты</NavLink>
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 
-export default Navbar;
+export default Header;
