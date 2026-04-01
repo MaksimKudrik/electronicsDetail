@@ -12,6 +12,7 @@
 .header-container {
   max-width: 1280px;
   margin: 0 auto;
+  margin-right: 100px;
   padding: 0 24px;
   height: 70px;
   display: flex;
