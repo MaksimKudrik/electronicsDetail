@@ -10,9 +10,9 @@
 }
 
 .header-container {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
   height: 70px;
   display: flex;
   align-items: center;
@@ -22,11 +22,11 @@
 /* Логотип */
 .logo {
   display: flex;
-  margin-right: 100px;
   align-items: center;
   gap: 12px;
   text-decoration: none;
   color: inherit;
+  flex-shrink: 0;           /* Важно! Логотип не сжимается */
 }
 
 .logo-icon {
@@ -48,16 +48,33 @@
   letter-spacing: -0.5px;
 }
 
-/* Десктопное меню — увеличил отступы */
+/* Десктопное меню */
 .nav-links {
   display: none;
-  gap: 40px;                    /* увеличил расстояние между ссылками */
+  gap: 24px;
   align-items: center;
+  flex-wrap: nowrap;
 }
 
+/* Средние экраны (планшеты) */
 @media (min-width: 768px) {
   .nav-links {
     display: flex;
+    gap: 28px;
+  }
+}
+
+/* Большие экраны */
+@media (min-width: 1024px) {
+  .nav-links {
+    gap: 36px;
+  }
+}
+
+/* Очень широкие экраны */
+@media (min-width: 1280px) {
+  .nav-links {
+    gap: 42px;
   }
 }
 
@@ -65,8 +82,8 @@
   color: #e2e8f0;
   text-decoration: none;
   font-weight: 500;
-  font-size: 16px;
-  padding: 8px 4px;             /* добавил небольшую внутреннюю отступку */
+  font-size: 15.5px;
+  padding: 8px 6px;
   transition: color 0.25s ease;
   white-space: nowrap;
 }
@@ -101,6 +118,7 @@
   cursor: pointer;
   padding: 8px;
   border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .hamburger:hover {
@@ -123,26 +141,26 @@
   border-top: 1px solid #27272a;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 999;
 }
 
 .mobile-menu.open {
-  max-height: 420px;
+  max-height: 480px;
 }
 
 .mobile-menu-content {
-  padding: 20px 24px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .mobile-link {
   color: #e2e8f0;
   text-decoration: none;
-  font-size: 18px;
-  padding: 14px 20px;
+  font-size: 17.5px;
+  padding: 16px 20px;
   border-radius: 10px;
   transition: all 0.3s ease;
 }
