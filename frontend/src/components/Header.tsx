@@ -15,8 +15,7 @@ const Header = () => {
       <div className="header-container">
         {/* Логотип */}
         <NavLink to="/" className="logo">
-          <div className="logo-icon">M</div>
-          <span className="logo-text">MyApp</span>
+          <div className="logo-icon"><img src="Boxes.svg" alt="icon" /></div>
         </NavLink>
 
         {/* Десктопное меню */}
