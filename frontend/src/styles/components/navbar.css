@@ -7,7 +7,6 @@
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  max-width: 100%;
 }
 
 .header-container {
@@ -40,7 +39,6 @@
   font-weight: 700;
   font-size: 24px;
   color: white;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
 }
 
 .logo-text {
@@ -49,7 +47,7 @@
   letter-spacing: -0.5px;
 }
 
-/* Меню */
+/* Десктопное меню */
 .nav-links {
   display: none;
   gap: 32px;
@@ -89,25 +87,27 @@
   background-color: #60a5fa;
 }
 
-/* Правая часть */
-.header-actions {
+/* Гамбургер — виден только на мобильных */
+.hamburger {
   display: flex;
   align-items: center;
-  gap: 16px;
-}
-
-.theme-toggle, .hamburger {
+  justify-content: center;
   background: none;
   border: none;
   color: #e2e8f0;
   cursor: pointer;
   padding: 8px;
   border-radius: 8px;
-  transition: all 0.2s ease;
 }
 
-.theme-toggle:hover, .hamburger:hover {
+.hamburger:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;   /* скрываем на планшетах и выше */
+  }
 }
 
 /* Мобильное меню */
@@ -121,6 +121,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
+  z-index: 999;
 }
 
 .mobile-menu.open {
