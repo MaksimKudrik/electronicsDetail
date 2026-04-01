@@ -7,7 +7,6 @@
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  max-width: 100%;
 }
 
 .header-container {
@@ -48,10 +47,10 @@
   letter-spacing: -0.5px;
 }
 
-/* Десктопное меню */
+/* Десктопное меню — увеличил отступы */
 .nav-links {
   display: none;
-  gap: 32px;
+  gap: 40px;                    /* увеличил расстояние между ссылками */
   align-items: center;
 }
 
@@ -66,7 +65,9 @@
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
+  padding: 8px 4px;             /* добавил небольшую внутреннюю отступку */
   transition: color 0.25s ease;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -88,7 +89,7 @@
   background-color: #60a5fa;
 }
 
-/* Гамбургер — виден только на мобильных */
+/* Гамбургер */
 .hamburger {
   display: flex;
   align-items: center;
@@ -107,7 +108,7 @@
 
 @media (min-width: 768px) {
   .hamburger {
-    display: none;   /* скрываем на планшетах и выше */
+    display: none;
   }
 }
 
