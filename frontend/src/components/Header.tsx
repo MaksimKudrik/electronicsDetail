@@ -22,10 +22,11 @@ const Header = () => {
         {/* Десктопное меню */}
         <nav className="nav-links">
           <NavLink to="/" className="nav-link" onClick={closeMenu}>Главная</NavLink>
-          <NavLink to="/about" className="nav-link" onClick={closeMenu}>О нас</NavLink>
-          <NavLink to="/services" className="nav-link" onClick={closeMenu}>Услуги</NavLink>
-          <NavLink to="/projects" className="nav-link" onClick={closeMenu}>Проекты</NavLink>
-          <NavLink to="/contact" className="nav-link" onClick={closeMenu}>Контакты</NavLink>
+          <NavLink to="/electronics/bol-shoy-servomotor-1" className="nav-link" onClick={closeMenu}>Большой сервомотор</NavLink>
+          <NavLink to="/electronics/sredniy-servomotor-2" className="nav-link" onClick={closeMenu}>Средний сервомотор</NavLink>
+          <NavLink to="/electronics/datchik-cveta-3" className="nav-link" onClick={closeMenu}>Датчик цвета</NavLink>
+          <NavLink to="/electronics/datchik-nazhatiya-4" className="nav-link" onClick={closeMenu}>Датчик нажатия</NavLink>
+          <NavLink to="/electronics/datchik-rasstoyaniya-5" className="nav-link" onClick={closeMenu}>Датчик расстояния</NavLink>
         </nav>
 
         {/* Гамбургер — только для мобильных */}
