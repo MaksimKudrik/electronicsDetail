@@ -38,17 +38,6 @@ const Header = () => {
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
-
-      {/* Мобильное меню */}
-      <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
-        <div className="mobile-menu-content">
-          <NavLink to="/" className="mobile-link" onClick={closeMenu}>Главная</NavLink>
-          <NavLink to="/about" className="mobile-link" onClick={closeMenu}>О нас</NavLink>
-          <NavLink to="/services" className="mobile-link" onClick={closeMenu}>Услуги</NavLink>
-          <NavLink to="/projects" className="mobile-link" onClick={closeMenu}>Проекты</NavLink>
-          <NavLink to="/contact" className="mobile-link" onClick={closeMenu}>Контакты</NavLink>
-        </div>
-      </div>
     </header>
   );
 };
