@@ -54,7 +54,10 @@
 .logo:hover .logo-icon {
   transform: rotate(8deg) scale(1.08);
 }
-
+.logo__{
+  width: 30px;
+  height: 30px;
+}
 /* ============== ДЕСКТОПНОЕ МЕНЮ ============== */
 .nav-links {
   display: flex;
@@ -81,7 +84,7 @@
 
 .nav-link.active {
   color: #a5b4fc;
-  background: rgba(165, 180, 252, 0.15);
+  background: rgba(255, 255, 255, 0.15);
   font-weight: 600;
 }
 
